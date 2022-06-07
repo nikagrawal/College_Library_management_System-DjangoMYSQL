@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Update Department</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/department_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Department_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Update Department</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/Department_update/{{department.department_id}}">
+                  {% csrf_token %}
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Department Name</label>
+                  <div class="col-sm-7">
+                   <input type="text" name="department_name" id="department_name" required maxlength="100" value="{{ department.department_name }}" />
+                  </div>
+                </div>
+
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

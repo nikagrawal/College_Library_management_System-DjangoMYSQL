@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Add Author</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/author_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Author_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Author</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/author_a">
+                  {% csrf_token %}
+               
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Author Name</label>
+                  <div class="col-sm-7">
+                    {{ form.author_name }}
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

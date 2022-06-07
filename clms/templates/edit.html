@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Update Employee</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/emp">Add</a></li>
+          <li class="breadcrumb-item"><a href="/show">Show</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Update Employee</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/update/{{employee.id}}">
+                  {% csrf_token %}
+                <div class="row mb-4">
+                  <label class="col-sm-4 col-form-label">Employee Id</label>
+                  <div class="col-sm-7">
+                     <input type="text" name="eid" id="id_eid" required maxlength="20" value="{{ employee.eid }}"/>
+                  </div>
+                </div>
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Employee Name</label>
+                  <div class="col-sm-7">
+                   <input type="text" name="ename" id="id_ename" required maxlength="100" value="{{ employee.ename }}" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Employee Email</label>
+                  <div class="col-sm-7">
+                    <input type="email" name="eemail" id="id_eemail" required maxlength="254" value="{{ employee.eemail }}" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Employee Contact</label>
+                  <div class="col-sm-7">
+                   <input type="text" name="econtact" id="id_econtact" required maxlength="15" value="{{ employee.econtact }}" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

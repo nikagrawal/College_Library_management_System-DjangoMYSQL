@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Departments</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/department_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Department_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Department</h5>
+
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                     <th>Department ID</th>
+                      <th>Department Name</th>
+
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Department in departments %}
+                 <tr>
+                    <td>{{ Department.department_id }}</td>
+                    <td>{{ Department.department_name }}</td>
+
+                    <td>
+                        <a href="/Department_edit/{{ Department.department_id }}" class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                        <a href="/Department_destroy/{{ Department.department_id }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <center>
+    <a href="/department_a" class="btn btn-primary">Add New Record</a>
+</center>
+    </section>
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

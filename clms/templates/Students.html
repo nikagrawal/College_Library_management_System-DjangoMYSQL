@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Add Author</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/students_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Students_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add student</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/students_a">
+                  {% csrf_token %}
+               <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Roll No</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_roll" class="form-control" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student First Name</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="student_first_name" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Last  Name</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="student_last_name" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Address</label>
+                  <div class="col-sm-7">
+                      <textarea class="form-control" name="student_address" style="height: 100px" required></textarea>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Sem</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_sem" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Mobile No</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_mob_no" class="form-control" required>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student email</label>
+                  <div class="col-sm-7">
+                       <input type="email" name="student_email" class="form-control" required>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Gender</label>
+                  <div class="col-sm-7">
+                    {{ form.student_gender }}
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Date of birth</label>
+                  <div class="col-sm-7">
+                      <input type="date" name="student_dob" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Password</label>
+                  <div class="col-sm-7">
+                       <input type="password" name="student_password" class="form-control" required ></td>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">department</label>
+                  <div class="col-sm-">
+                    <select  name="department" class="form-select" required >
+
+                    <option value="">Select department</option>
+                        {% for Department in department %}
+                      <option value="{{ Department.department_id }}">{{ Department.department_name }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

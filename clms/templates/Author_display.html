@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Authors</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/author_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Author_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Author</h5>
+
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                     <th>Author ID</th>
+                      <th>Author Name</th>
+
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for author in authors %}
+                 <tr>
+                    <td>{{ author.author_id }}</td>
+                    <td>{{ author.author_name }}</td>
+
+                    <td>
+                        <a href="/Author_edit/{{ author.author_id }}" class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                        <a href="/Author_destroy/{{ author.author_id }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <center>
+    <a href="/author_a" class="btn btn-primary">Add New Record</a>
+</center>
+    </section>
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}
