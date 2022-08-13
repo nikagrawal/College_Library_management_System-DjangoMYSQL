@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Issue</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/issue_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Issue_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-20">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Issue Book </h5>
+                <div class="table-responsive">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>Issue ID</th>
+                      <th>Publication name</th>
+                      <th>Student Roll No</th>
+                      <th>Student Name</th>
+                      <th>Book NameNo</th>
+                      <th>Issue Date</th>
+                      <th>Return Date</th>
+
+                      <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Issue in issue %}
+                 <tr>
+                     <td>{{ Issue.0 }}</td>
+                    <td>{{ Issue.1 }}</td>
+                    <td>{{ Issue.2 }}</td>
+                     <td>{{ Issue.3 }}</td>
+                     <td>{{ Issue.4 }}</td>
+                     <td>{{ Issue.6 }}</td>
+                     <td>{{ Issue.5 }}</td>
+                     <td>
+
+                        <a href="/Issue_destroy/{{ Issue.0 }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+
+              </table>
+              <!-- End Table with stripped rows -->
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

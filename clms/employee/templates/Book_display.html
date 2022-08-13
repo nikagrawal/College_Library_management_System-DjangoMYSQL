@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Book</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/book_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Book_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-20">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Book</h5>
+                <div class="table-responsive">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>Book ID</th>
+                      <th>Book Name</th>
+                      <th>Class No</th>
+                      <th>Book Edition</th>
+                      <th>Book received_by</th>
+                      <th>Book Bill_date</th>
+                      <th>Book Bill_no</th>
+                      <th>Book Pages</th>
+                      <th>Book Price</th>
+                      <th>Book Date_of_entry</th>
+                      <th>Book Location</th>
+                      <th>Book Author</th>
+                      <th>Book Publication</th>
+                      <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Book in book %}
+                 <tr>
+                     <td>{{ Book.0 }}</td>
+                    <td>{{ Book.1 }}</td>
+                    <td>{{ Book.2 }}</td>
+                     <td>{{ Book.3 }}</td>
+                     <td>{{ Book.4 }}</td>
+                     <td>{{ Book.5 }}</td>
+                     <td>{{ Book.6 }}</td>
+                     <td>{{ Book.7 }}</td>
+                     <td>{{ Book.8 }}</td>
+                     <td>{{ Book.9 }}</td>
+                     <td>{{ Book.10 }}</td>
+                     <td>{{ Book.11 }}</td>
+                     <td>{{ Book.12 }}</td>
+
+                     <td>
+                        <a href="/Book_edit/{{ Book.0}}" class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                        <a href="/Book_destroy/{{ Book.0 }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+
+              </table>
+              <!-- End Table with stripped rows -->
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

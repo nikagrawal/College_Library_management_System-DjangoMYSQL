@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Penalty</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/penalty_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Penalty_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-20">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Penalty</h5>
+                <div class="table-responsive">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>Penalty ID</th>
+                      <th>Student Name</th>
+                      <th>Book Name</th>
+                      <th>Penalty Amount</th>
+                      <th>Penalty Price</th>
+
+                      <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Penalty in penalty %}
+                 <tr>
+                     <td>{{ Penalty.0 }}</td>
+                    <td>{{ Penalty.1 }}</td>
+                    <td>{{ Penalty.2 }}</td>
+                     <td>{{ Penalty.3 }}</td>
+                     <td>{{ Penalty.4 }}</td>
+
+
+                     <td>
+                        <a href="/Penalty_edit/{{ Penalty.0}}" class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                        <a href="/Penalty_destroy/{{ Penalty.0 }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+
+              </table>
+              <!-- End Table with stripped rows -->
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

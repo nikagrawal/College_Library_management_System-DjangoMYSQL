@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Students</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/students_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Students_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-20">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Student</h5>
+                <div class="table-responsive">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>Students ID</th>
+                      <th>Students Roll No</th>
+                      <th>Students First Name</th>
+                      <th>Students Second Name</th>
+                      <th>Students Address</th>
+                      <th>Students Mobile No</th>
+                      <th>Students Email</th>
+                      <th>Students Sem</th>
+                      <th>Students Gender</th>
+                      <th>Students Date of birth</th>
+                      <th>Students Password</th>
+                      <th>Students Department</th>
+                      <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Student in student %}
+                 <tr>
+                     <td>{{ Student.0 }}</td>
+                    <td>{{ Student.1 }}</td>
+                    <td>{{ Student.2 }}</td>
+                     <td>{{ Student.3 }}</td>
+                     <td>{{ Student.4 }}</td>
+                     <td>{{ Student.5 }}</td>
+                     <td>{{ Student.6 }}</td>
+                     <td>{{ Student.7 }}</td>
+                     <td>{{ Student.8 }}</td>
+                     <td>{{ Student.9 }}</td>
+                     <td>{{ Student.10 }}</td>
+                     <td>{{ Student.11 }}</td>
+                     <td>
+                        <a href="/Students_edit/{{ Student.0}}" class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                        <a href="/Students_destroy/{{ Student.0 }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+
+              </table>
+              <!-- End Table with stripped rows -->
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

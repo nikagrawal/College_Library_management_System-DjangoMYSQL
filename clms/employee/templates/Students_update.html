@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Update Students</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/students_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Students_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Update Students</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/Students_update/{{ Student.student_id }}">
+                  {% csrf_token %}
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Roll No</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_roll" class="form-control" value="{{ student.student_roll }}" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student First Name</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="student_first_name" class="form-control" required value="{{ student.student_first_name }}">
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Last  Name</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="student_last_name" class="form-control"  value="{{ student.student_last_name }}" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Address</label>
+                  <div class="col-sm-7">
+                      <input class="form-control" name="student_address" style="height: 100px"  value="{{ student.student_address }}" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Sem</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_sem" class="form-control" required  value="{{ student.student_sem }}">
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student Mobile No</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="student_mob_no" class="form-control"  value="{{ student.student_mob_no }}" required>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Student email</label>
+                  <div class="col-sm-7">
+                       <input type="email" name="student_email" class="form-control"  value="{{ student.student_email }}" required>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Gender</label>
+                  <div class="col-sm-7">
+                      <select class="form-select" aria-label="Default select example">
+                        <option value="{{ student.student_gender }}">{{ student.student_gender }}</option>
+                    </select>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Date of birth</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="student_dob" class="form-control"   value="{{ student.student_dob }}">
+
+                  </div>
+                </div>
+
+                  <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">department</label>
+                  <div class="col-sm-">
+                    <select  name="department" class="form-select" required >
+                    {% for student in department %}
+                    <option value="{{ student.department_id  }}">{{ student.department_name  }}</option>
+
+
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Password</label>
+                  <div class="col-sm-7">
+                       <input type="text" name="student_password" class="form-control" required value="{{ student.student_password }}" ></td>
+
+                  </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Issue</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/return_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Return_show">Display</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-20">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Show Return Book </h5>
+                <div class="table-responsive">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>Return ID</th>
+                      <th>Publication name</th>
+                      <th>Student Roll No</th>
+                      <th>Student Name</th>
+                      <th>Book NameNo</th>
+                      <th>Issue Date</th>
+                      <th>Return Date</th>
+                      <th>Panalty</th>
+
+                      <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for Return in book_retun %}
+                 <tr>
+                     <td>{{ Return.0 }}</td>
+                    <td>{{ Return.1 }}</td>
+                    <td>{{ Return.2 }}</td>
+                     <td>{{ Return.3 }}</td>
+                     <td>{{ Return.4 }}</td>
+                     <td>{{ Return.6 }}</td>
+                     <td>{{ Return.5 }}</td>
+                     <td>{{ Return.7 }}</td>
+                     <td>
+
+                        <a href="/Return_destroy/{{ Return.0 }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+
+              </table>
+              <!-- End Table with stripped rows -->
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    </main><!-- End #main -->
+
+  <!-- End #main -->
+
+{% endblock content %}

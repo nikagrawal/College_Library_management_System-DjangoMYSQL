@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Add Book</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/book_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Book_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Book</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/book_a">
+                  {% csrf_token %}
+               <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Class No</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="book_class_no" class="form-control" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Book Name</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="book_name" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">Publication</label>
+                  <div class="col-sm-">
+                    <select  name="publication_id" class="form-select" required >
+
+                    <option value="">Select Publication</option>
+                        {% for Publications in publications %}
+                      <option value="{{ Publications.publication_id }}">{{ Publications.publication_name }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Edition</label>
+                  <div class="col-sm-7">
+                      <input type="date" name="book_edition" class="form-control" required>
+
+                  </div>
+                </div>
+
+                   <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">Author</label>
+                  <div class="col-sm-">
+                    <select  name="author_id" class="form-select" required >
+
+                    <option value="">Select Author</option>
+                        {% for Author in author %}
+                      <option value="{{ Author.author_id }}">{{ Author.author_name }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Received_by</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="received_by" class="form-control" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Book_bill_date</label>
+                  <div class="col-sm-7">
+                      <input type="date" name="book_bill_date" class="form-control" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Price</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="book_price" class="form-control" required>
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">book_bill_no</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="book_bill_no" class="form-control" required>
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Pages</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="book_pages" class="form-control" required>
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">book_date_of_entry</label>
+                  <div class="col-sm-7">
+                      <input type="date" name="book_date_of_entry" class="form-control" required>
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Location</label>
+                  <div class="col-sm-7">
+                      <input type="text" name="book_location" class="form-control" required>
+
+                  </div>
+                </div>
+
+
+
+
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}

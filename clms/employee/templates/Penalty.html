@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Penalty Book</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/penalty_a">Add</a></li>
+          <li class="breadcrumb-item"><a href="/Penalty_show">Display</a></li>
+
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+<section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Penalty Book</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="/penalty_a">
+                  {% csrf_token %}
+
+                   <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">Student</label>
+                  <div class="col-sm-">
+                    <select  name="student" class="form-select" required >
+
+                    <option value="">Select Student</option>
+                        {% for Student in student %}
+                      <option value="{{ Student.student_id }}">{{ Student.student_roll }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label class="col-sm-3 col-form-label">Book</label>
+                  <div class="col-sm-">
+                    <select  name="book" class="form-select" required >
+
+                    <option value="">Select book</option>
+                        {% for Book in book %}
+                      <option value="{{ Book.book_id }}">{{ Book.book_name }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Penalty Amount</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="penalty_amount" class="form-control" required>
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Price</label>
+                  <div class="col-sm-7">
+                      <input type="number" name="penalty_pay" class="form-control" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</section>
+</main>
+{% endblock content %}
